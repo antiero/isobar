@@ -45,7 +45,10 @@ if last_note_time:
         "note": iso.PSequence([note.note for note in notes], 1),
         "duration": iso.PSequence(durations, 1)
     })
-    timeline.run()
+    try:
+        timeline.run()
+    except KeyboardInterrupt:
+        timeline.output_device.all_notes_off()
 else:
     print()
     print("No notes detected")

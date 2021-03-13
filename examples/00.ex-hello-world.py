@@ -20,4 +20,7 @@ timeline.schedule({
     "duration": 1
 })
 
-timeline.run()
+try:
+    timeline.run()
+except KeyboardInterrupt:
+    timeline.output_device.all_notes_off()

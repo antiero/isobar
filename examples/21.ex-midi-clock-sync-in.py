@@ -21,4 +21,7 @@ timeline.schedule({
 
 print("Awaiting MIDI clock signal from %s..." % midi_in.device_name)
 
-timeline.run()
+try:
+    timeline.run()
+except KeyboardInterrupt:
+    timeline.output_device.all_notes_off()

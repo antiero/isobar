@@ -14,4 +14,8 @@ timeline.schedule({
     "osc_address": "/freq",
     "osc_params": [iso.PSequence([440, 880])]
 })
-timeline.run()
+
+try:
+    timeline.run()
+except KeyboardInterrupt:
+    timeline.output_device.all_notes_off()

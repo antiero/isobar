@@ -28,4 +28,8 @@ timeline.schedule({
     "octave": 6,
     "duration": 0.25
 })
-timeline.run()
+
+try:
+    timeline.run()
+except KeyboardInterrupt:
+    timeline.output_device.all_notes_off()

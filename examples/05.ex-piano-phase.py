@@ -42,4 +42,7 @@ timeline.schedule({
 # Start playing via default MIDI out, and block forever.
 # Alternatively, use timeline.background() to retain foreground control.
 #------------------------------------------------------------------------
-timeline.run()
+try:
+    timeline.run()
+except KeyboardInterrupt:
+    timeline.output_device.all_notes_off()

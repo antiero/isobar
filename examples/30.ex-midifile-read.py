@@ -27,4 +27,8 @@ print("Read pattern containing %d note events" % len(pattern["note"]))
 
 timeline = iso.Timeline()
 timeline.schedule(pattern)
-timeline.run()
+
+try:
+    timeline.run()
+except KeyboardInterrupt:
+    timeline.output_device.all_notes_off()
